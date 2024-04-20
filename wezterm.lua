@@ -1,9 +1,11 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+local custom_color, _ = wezterm.color.load_scheme("/Users/bytedance/.config/wezterm/colors/mynordfox.toml")
+
 local config = {
 	default_workspace = "main",
-	color_scheme = "Catppuccin Mocha",
+	-- color_scheme = "Catppuccin Mocha",
 	-- color_scheme = "Google Light (base16)",
 	-- color_scheme = "Dark+",
 	-- color_scheme = "Catppuccin Latte (Gogh)",
@@ -14,13 +16,14 @@ local config = {
 	-- color_scheme = "Atelier Sulphurpool (base16)", -- good
 	-- color_scheme = "rebecca",
 	-- color_scheme = "nightfox",
-	color_scheme = "Nightfly (Gogh)",
-	color_scheme = "Neon Night (Gogh)",
-	color_scheme = "BlulocoDark",
+	-- color_scheme = "Nightfly (Gogh)",
+	-- color_scheme = "Neon Night (Gogh)",
+	-- color_scheme = "nordfox",
 	-- color_scheme = "Dracula+",
 	-- color_scheme = "Sonokai (Gogh)",
 	-- color_scheme = "Catppuccin Macchiato",
-	color_scheme = "tokyonight_moon",
+	-- color_scheme = "tokyonight_moon",
+	colors = custom_color,
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = false,
 	window_decorations = "RESIZE",
@@ -28,7 +31,7 @@ local config = {
 	macos_window_background_blur = 70,
 	scrollback_lines = 50000,
 	enable_scroll_bar = true,
-	window_background_opacity = 0.8,
+	window_background_opacity = 0.9,
 	text_background_opacity = 1,
 	adjust_window_size_when_changing_font_size = false,
 	window_padding = {
@@ -37,17 +40,8 @@ local config = {
 		top = 5,
 		bottom = 5,
 	},
-	-- background = {
-	-- 	{
-	-- 		source = { File = wezterm.config_dir .. "/space.jpg" },
-	-- 	},
-	-- 	{
-	-- 		source = { Color = "#1A1B26" },
-	-- 		height = "100%",
-	-- 		width = "100%",
-	-- 		opacity = 0.95,
-	-- 	},
-	-- },
+	initial_rows = 35,  -- 设置窗口默认行数
+  	initial_cols = 120,  -- 设置窗口默认列数
 }
 
 -- Fonts
@@ -58,6 +52,11 @@ config.font = wezterm.font_with_fallback({
 	-- 	scale = 1.1,
 	-- 	weight = "Regular",
 	-- },
+	{
+		family = "CodeNewRoman Nerd Font Mono",
+		scale = 1.1,
+		weight = "Regular",
+	},
 	{
 		family = "JetBrainsMono Nerd Font Mono",
 		-- scale = 1.1,
